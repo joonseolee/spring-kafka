@@ -20,6 +20,41 @@
 카프카에 대해 기본적인 것들은 여기저기 많이 설명되어있지만 실제로 어떻게 구현하고 구성을 잡아야할지 도무지 감이 안잡혀서  
 책을 빌려서 공부하는중...
 
+### 리눅스 명령어
+
+이 책에서는 리눅스 명령어 간간히 나오는데  
+항상 검색하면서 쓰고 까먹고 쓰고 까먹고하다보니..외울겸 기록해둠
+
+1. 심볼릭 설정
+
+`apache-zookeeper-3.6.3-bin` 이라는 폴더를 `zookeeper` 라는 이름으로 명명 설정
+
+```bash
+ln -s apache-zookeeper-3.6.3-bin zookeeper
+```
+
+```bash
+drwxr-xr-x@ 11 bobo  staff   352B  9  8 19:54 apache-zookeeper-3.6.3-bin
+lrwxr-xr-x   1 bobo  staff    26B  9  8 19:36 zookeeper -> apache-zookeeper-3.6.3-bin
+drwxr-xr-x   5 bobo  staff   160B  9  8 19:48 zookeeper-cluster
+```
+
+2. 통신여부 확인
+
+각 쥬키퍼별로 또는 카프카별로 서로 서버간 통신여부를 확인하기 위해 커맨드 실행  
+일단 예시로써 쥬키퍼 2개를 도커로 띄우고 `zoo2` 에서 `zoo3` 연결되는지만 확인
+
+```bash
+bobo@localhost ~/D/core> docker inspect fb9 | grep 'Gateway'
+            "Gateway": "",
+            "IPv6Gateway": "",
+                    "Gateway": "172.21.0.1",
+                    "IPv6Gateway": "",
+
+root@zoo2:/apache-zookeeper-3.7.0-bin# nc -v 172.21.0.1 2183
+Connection to 172.21.0.1 2183 port [tcp/*] succeeded!
+```
+
 ### 설치방법
 
 `apache zookeeper` 를 압축파일로 다운받아 쉘스크립트로 실행하라고 책에 나와있는데..  
