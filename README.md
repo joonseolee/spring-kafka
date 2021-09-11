@@ -39,3 +39,5 @@ fb947328192f   zookeeper   "/docker-entrypoint.…"   10 seconds ago   Up 2 seco
 c5b36c552f02   zookeeper   "/docker-entrypoint.…"   2 minutes ago    Up 5 seconds   2888/tcp, 3888/tcp, 0.0.0.0:2181->2181/tcp, 8080/tcp   zookeeper_zoo1_1
 user@loo ~/D/d/zookeeper>
 ```
+
+이후 `apache kafka` 설치
