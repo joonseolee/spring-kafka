@@ -75,4 +75,23 @@ c5b36c552f02   zookeeper   "/docker-entrypoint.…"   2 minutes ago    Up 5 seco
 user@loo ~/D/d/zookeeper>
 ```
 
-이후 `apache kafka` 설치
+파프카는 `wurstmeister/kafka` 도커 이미지를 사용해서 올렸다.  
+사실 이것만 `docker-compose` 로 올리면 `zookeeper` 로 올라가게되어 굳이 위에꺼 할필요는 없음
+
+```bash
+roo@localhost ~/D/m/h/rv [SIGINT]> docker search kafka
+NAME                                    DESCRIPTION                                     STARS     OFFICIAL   AUTOMATED
+wurstmeister/kafka                      Multi-Broker Apache Kafka Image                 1425                 [OK]
+spotify/kafka                           A simple docker image with both Kafka and Zo…   414                  [OK]
+sheepkiller/kafka-manager               kafka-manager                                   208                  [OK]
+kafkamanager/kafka-manager              Docker image for Kafka manager                  142                  
+ches/kafka                              Apache Kafka. Tagged versions. JMX. Cluster-…   117                  [OK]
+```
+
+카프카 `consumer` 랑 `producer` 를 터미널로 실행시킬려면 아래 커맨드 실행
+
+```bash
+kafka-console-consumer.sh --bootstrap-server 127.0.0.1:9092 --topic test --from-beginning
+
+kafka-console-producer.sh --broker-list 127.0.0.1:9092 --topic test
+```
