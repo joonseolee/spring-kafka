@@ -84,9 +84,11 @@ NAME                                    DESCRIPTION                             
 wurstmeister/kafka                      Multi-Broker Apache Kafka Image                 1425                 [OK]
 spotify/kafka                           A simple docker image with both Kafka and Zo…   414                  [OK]
 sheepkiller/kafka-manager               kafka-manager                                   208                  [OK]
-kafkamanager/kafka-manager              Docker image for Kafka manager                  142                  
+kafkamanager/kafka-manager              Docker image for Kafka manager                  142
 ches/kafka                              Apache Kafka. Tagged versions. JMX. Cluster-…   117                  [OK]
 ```
+
+### 카프카 실행
 
 카프카 `consumer` 랑 `producer` 를 터미널로 실행시킬려면 아래 커맨드 실행
 
@@ -95,3 +97,8 @@ kafka-console-consumer.sh --bootstrap-server 127.0.0.1:9092 --topic test --from-
 
 kafka-console-producer.sh --broker-list 127.0.0.1:9092 --topic test
 ```
+
+### 카프카 스트림
+
+카프카 스트림에 대한 내용들도 있었는데  
+읽어보니 나쁘지않겠다라는 생각이 들어서 스트림방식으로도 코딩할듯
